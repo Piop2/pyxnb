@@ -23,15 +23,15 @@ class Texture2D(object):
     FORMAT_HDRBLENDABLE = 19
 
     def __init__(self, stream):
-        self.surface_format = read_i32(stream)
+        self.surface_format = xnb.read_i32(stream)
 
-        self.width  = read_u32(stream)
-        self.height = read_u32(stream)
+        self.width  = xnb.read_u32(stream)
+        self.height = xnb.read_u32(stream)
 
-        n_mips = read_u32(stream)
+        n_mips = xnb.read_u32(stream)
         self.mips = []
         for i in range(n_mips):
-            data_size = read_u32(stream)
+            data_size = xnb.read_u32(stream)
             self.mips.append(stream.read(data_size))
 
 xnb.register_reader('Microsoft.Xna.Framework.Content.Texture2DReader', Texture2D)

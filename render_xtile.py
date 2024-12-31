@@ -1,6 +1,6 @@
 import sys
 import xnb
-import xnb_graphics
+import graphics
 import xtile
 from PIL import Image
 import os
